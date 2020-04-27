@@ -38,7 +38,7 @@ The necessary connections between the PIC18F57Q43 Curiosity Nano board and the r
 ![PROTO Click Circuit](images/Proto-Click-Circuit.jpg)
 
 ### Full System Setup
-![Full System Setup](images/Full-System-Setup.jpg)
+![](images/Full-System-Setup.jpg)
 
 ## Software Setup
 
