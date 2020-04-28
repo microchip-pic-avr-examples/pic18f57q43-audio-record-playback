@@ -1,4 +1,4 @@
-# pic18f57q43-audio-record-playback ReadMe
+<a href="https://www.microchip.com" rel="nofollow"><img src="images/microchip.png" alt="MCHP" width="300"/></a>
 
 ## Audio Recording and Playback using DMA and CIPs
 
