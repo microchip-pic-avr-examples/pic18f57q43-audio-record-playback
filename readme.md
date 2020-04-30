@@ -20,9 +20,9 @@ An application note explaining the theory of operation and details of hardware a
 
 - PIC18F57Q43 Curiosity Nano Evaluation Kit [(DM164150)](https://www.microchip.com/developmenttools/ProductDetails/DM164150 "(DM164150)")
 - Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/developmenttools/ProductDetails/AC164162 "(AC164162)")
-- Mic Click [[MIKROE-2563]](https://www.mikroe.com/mic-click "[MIKROE-2563]")
-- Flash 2 Click [[MIKROE-2267]](https://www.mikroe.com/flash-2-click "[MIKROE-2267]")
-- Power Amplifier implemented on a PROTO Click [[MIKROE-1507]](https://www.mikroe.com/proto-click "[MIKROE-1507]")
+- Mic Click [(MIKROE-2563)](https://www.mikroe.com/mic-click "(MIKROE-2563)")
+- Flash 2 Click [(MIKROE-2267)](https://www.mikroe.com/flash-2-click "(MIKROE-2267)")
+- Power Amplifier implemented on a PROTO Click [(MIKROE-1507)](https://www.mikroe.com/proto-click "(MIKROE-1507)")
 
 ## Hardware Setup
 
