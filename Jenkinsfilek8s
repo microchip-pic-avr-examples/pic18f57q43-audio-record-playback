@@ -15,7 +15,7 @@ pipeline {
 	
 	environment {		
 		GITHUB_URL ='https://github.com/microchip-pic-avr-examples/pic18f57q43-audio-record-playback.git'
-		BITBUCKET_URL = 'https://bitbucket.microchip.com/scm/ebe/pic18f57q43-audio-record-playbackr.git'
+		BITBUCKET_URL = 'https://bitbucket.microchip.com/scm/ebe/pic18f57q43-audio-record-playback.git'
 		DEPLOY_TOOL_URL = 'https://bitbucket.microchip.com/scm/citd/tool-github-deploy.git'
 		DEPLOY_SCRIPT_DIR = 'tool-github-deploy'
 		DEPLOY_SCRIPT_FILE = 'deploy-source-as-is.sh'
