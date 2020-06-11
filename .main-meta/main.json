@@ -1,0 +1,90 @@
+{
+    "metaDataVersion": "1.0.0",
+    "category": "com.microchip.ide.project",
+    "content": {
+        "metaDataVersion": "1.0.0",
+        "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-audio-record-playback",
+        "version": "1.0.2",
+        "displayName": "PIC18F57Q43 AUDIO RECORD PLAYBACK",
+        "projectName": "pic18f57q43-audio-record-playback",
+        "shortDescription": "PIC18F57Q43 to perform audio recording and playback operations ",
+        "ide": {
+            "name": "MPLABX",
+            "semverRange": ">=5.35.0"
+        },
+        "compiler": {
+            "name": "XC8",
+            "semverRange": "^2.20.0"
+        },
+        "dfp": {
+            "name": "PIC18F-Q_DFP",
+            "semverRange": "^1.4.109"
+        },
+        "configurator": {
+            "name": "MCC",
+            "semverRange": ">=3.95.0"
+        },
+        "device": {
+            "metaDataVersion": "1.0.0",
+            "category": "com.microchip.portal.contentRef",
+            "content": {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.device",
+                "name": "PIC18F57Q43",
+                "versionRange": "*"
+            }
+        },
+        "author": "Microchip",
+        "subcategories": [
+            "MCC",
+            [
+               "Perpherals", "TMR0"
+            ],
+            [
+               "Perpherals", "ADCC"
+            ],
+            [
+               "Perpherals", "DAC1"
+            ],
+			[
+               "Perpherals", "SPI1"
+            ],
+			[
+               "Perpherals", "DMA"
+            ],
+			[
+               "Perpherals", "PWM1"
+            ],
+			[
+               "Perpherals", "CMP1"
+            ],
+			[
+               "Perpherals", "TMR2/4"
+            ],
+			[
+               "Perpherals", "CLC1/2"
+            ],
+			[
+               "Perpherals", "UART1"
+            ]
+        ],
+        "peripherals": [
+            "TMR0","ADCC","DAC1","SPI1","DMA","PWM1","CMP1","TMR2/4","CLC1/2","UART1"
+        ],
+        "keywords": [
+            "MCC",
+            "audio recording"            
+        ]
+    },
+    "additionalData": {
+        "longDescription": {
+            "metaDataVersion": "1.0.0",
+            "category": "com.microchip.portal.fileRef",
+            "content": {
+                "metaDataVersion": "1.0.0",
+                "fileName": "./README.md",
+                "mimeType": "text/markdown"
+            }
+        }
+    }
+}
