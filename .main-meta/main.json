@@ -38,34 +38,34 @@
         "subcategories": [
             "MCC",
             [
-               "Perpherals", "TMR0"
+               "Peripherals", "TMR0"
             ],
             [
-               "Perpherals", "ADCC"
+               "Peripherals", "ADCC"
             ],
             [
-               "Perpherals", "DAC1"
+               "Peripherals", "DAC1"
             ],
 			[
-               "Perpherals", "SPI1"
+               "Peripherals", "SPI1"
             ],
 			[
-               "Perpherals", "DMA"
+               "Peripherals", "DMA"
             ],
 			[
-               "Perpherals", "PWM1"
+               "Peripherals", "PWM1"
             ],
 			[
-               "Perpherals", "CMP1"
+               "Peripherals", "CMP1"
             ],
 			[
-               "Perpherals", "TMR2/4"
+               "Peripherals", "TMR2/4"
             ],
 			[
-               "Perpherals", "CLC1/2"
+               "Peripherals", "CLC1/2"
             ],
 			[
-               "Perpherals", "UART1"
+               "Peripherals", "UART1"
             ]
         ],
         "peripherals": [
