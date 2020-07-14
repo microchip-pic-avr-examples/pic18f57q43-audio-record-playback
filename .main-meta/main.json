@@ -5,9 +5,9 @@
         "metaDataVersion": "1.0.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-audio-record-playback",
         "version": "1.0.2",
-        "displayName": "PIC18F57Q43 AUDIO RECORD PLAYBACK",
+        "displayName": "PIC18F57Q43 AUDIO RECORDING AND PLAYBACK USING DMA AND CIPs",
         "projectName": "pic18f57q43-audio-record-playback",
-        "shortDescription": "PIC18F57Q43 to perform audio recording and playback operations ",
+        "shortDescription": "PIC18F57Q43 to perform audio recording and playback operations using DMA and other CIPs",
         "ide": {
             "name": "MPLABX",
             "semverRange": ">=5.35.0"
@@ -44,36 +44,43 @@
                "Peripherals", "ADCC"
             ],
             [
-               "Peripherals", "DAC1"
+               "Peripherals", "DAC"
             ],
 			[
-               "Peripherals", "SPI1"
+               "Peripherals", "SPI"
             ],
 			[
                "Peripherals", "DMA"
             ],
 			[
-               "Peripherals", "PWM1"
+               "Peripherals", "PWM"
             ],
 			[
-               "Peripherals", "CMP1"
+               "Peripherals", "CMP"
             ],
 			[
-               "Peripherals", "TMR2/4"
+               "Peripherals", "TMR2"
             ],
 			[
-               "Peripherals", "CLC1/2"
+               "Peripherals", "CLC1"
             ],
 			[
-               "Peripherals", "UART1"
+               "Peripherals", "UART"
             ]
         ],
         "peripherals": [
-            "TMR0","ADCC","DAC1","SPI1","DMA","PWM1","CMP1","TMR2/4","CLC1/2","UART1"
+            "TMR0","ADCC","DAC","SPI","DMA","PWM","CMP","TMR2","CLC","UART"
         ],
         "keywords": [
             "MCC",
-            "audio recording"            
+            "audio recording",
+            "audio",
+            "audio playback",
+            "audio recording and playback",
+            "cip",
+            "dma",
+            "flash",
+            "memory"            
         ]
     },
     "additionalData": {
