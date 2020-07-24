@@ -62,7 +62,7 @@
                "Peripherals", "TMR2"
             ],
 			[
-               "Peripherals", "CLC1"
+               "Peripherals", "CLC"
             ],
 			[
                "Peripherals", "UART"
