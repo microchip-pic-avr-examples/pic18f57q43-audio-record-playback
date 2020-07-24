@@ -2,29 +2,27 @@
     "metaDataVersion": "1.0.0",
     "category": "com.microchip.ide.project",
     "content": {
-        "metaDataVersion": "1.1.0",
-        "name": "com.microchip.mcu8.mplabx.project.",
-        "version": " ",
-        "displayName": "  ",
-        "projectName": "",
-        "shortDescription": "",
+        "metaDataVersion": "1.0.0",
+        "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-audio-record-playback",
+        "version": "1.0.2",
+        "displayName": "PIC18F57Q43 AUDIO RECORDING AND PLAYBACK USING DMA AND CIPs",
+        "projectName": "pic18f57q43-audio-record-playback",
+        "shortDescription": "PIC18F57Q43 to perform audio recording and playback operations using DMA and other CIPs",
         "ide": {
-            "name": "",
-            "semverRange": ""
+            "name": "MPLABX",
+            "semverRange": ">=5.35.0"
         },
-        "compiler": [
-			{
-				"name": "",
-				"semverRange": ""
-			}
-		],
+        "compiler": {
+            "name": "XC8",
+            "semverRange": "^2.20.0"
+        },
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "PIC18F-Q_DFP",
+            "semverRange": "^1.4.109"
         },
         "configurator": {
-            "name": "",
-            "semverRange": ""
+            "name": "MCC",
+            "semverRange": ">=3.95.0"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -32,37 +30,68 @@
             "content": {
                 "metaDataVersion": "1.0.0",
                 "category": "com.microchip.device",
-                "name": "",
+                "name": "PIC18F57Q43",
                 "versionRange": "*"
             }
         },
-        "author": "",
+        "author": "Microchip",
         "subcategories": [
-            "",
+            "MCC",
             [
-               "Peripherals", ""
+               "Peripherals", "TMR0"
             ],
             [
-               "Peripherals", ""
-            ]            			
+               "Peripherals", "ADCC"
+            ],
+            [
+               "Peripherals", "DAC"
+            ],
+			[
+               "Peripherals", "SPI"
+            ],
+			[
+               "Peripherals", "DMA"
+            ],
+			[
+               "Peripherals", "PWM"
+            ],
+			[
+               "Peripherals", "CMP"
+            ],
+			[
+               "Peripherals", "TMR2"
+            ],
+			[
+               "Peripherals", "CLC1"
+            ],
+			[
+               "Peripherals", "UART"
+            ]
         ],
         "peripherals": [
-            "",""
+            "TMR0","ADCC","DAC","SPI","DMA","PWM","CMP","TMR2","CLC","UART"
         ],
         "keywords": [
-            "",
-            ""			
-        ],
-		"additionalData": {
-			"longDescription": {
-				"metaDataVersion": "1.0.0",
-				"category": "com.microchip.portal.fileRef",
-				"content": {
-					"metaDataVersion": "1.0.0",
-					"fileName": "./README.md",
-					"mimeType": "text/markdown"
-				}
-			}
-		}
-	}
+            "MCC",
+            "audio recording",
+            "audio",
+            "audio playback",
+            "audio recording and playback",
+            "cip",
+            "dma",
+            "flash",
+            "memory"            
+        ]
+    },
+    "additionalData": {
+        "longDescription": {
+            "metaDataVersion": "1.0.0",
+            "category": "com.microchip.portal.fileRef",
+            "content": {
+                "metaDataVersion": "1.0.0",
+                "fileName": "./README.md",
+                "mimeType": "text/markdown"
+            }
+        }
+    }
 }
