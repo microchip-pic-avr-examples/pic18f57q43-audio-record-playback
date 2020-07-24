@@ -4,7 +4,7 @@
     "content": {
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-audio-record-playback",
-        "version": "1.0.2",
+        "version": "1.0.1",
         "displayName": "PIC18F57Q43 AUDIO RECORDING AND PLAYBACK USING DMA AND CIPs",
         "projectName": "pic18f57q43-audio-record-playback",
         "shortDescription": "PIC18F57Q43 to perform audio recording and playback operations using DMA and other CIPs",
