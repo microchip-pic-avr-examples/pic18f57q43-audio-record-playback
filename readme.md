@@ -6,7 +6,7 @@ This demo is based on the PIC18F57Q43 Curiosity Nano platform. It details the us
 
 ## Related Documentation
 
-An application note explaining the theory of operation and details of hardware and software design will be published soon.
+- Audio Recording and Playback Using Direct Memory Access and Core Independent Peripherals [(AN3548)](https://www.microchip.com/wwwappnotes/appnotes.aspx?appnote=en1003018 "(AN3548)")
 
 ## Software Used
 
@@ -35,10 +35,13 @@ The necessary connections between the PIC18F57Q43 Curiosity Nano board and the r
 ![Curiosity Nano Board Connections](images/Curiosity-Nano-Board-Connections.jpg)
 
 ### PROTO Click Circuit
-![PROTO Click Circuit](images/Proto-Click-Circuit.jpg)
+![PROTO Click Circuit](images/Proto-Click-Circuit-v2.png)
 
 ### Full System Setup
-![Full System Setup](images/Full-System-Setup.png)
+![Full System Setup](images/Full-System-Setup-v2.jpg)
+
+### Proto Click
+![Proto Click](images/Proto-Click.jpg)
 
 ## Software Setup
 
@@ -66,7 +69,11 @@ To run the application, use the button on the Curiosity Nano board.
 
 A special button is available on the PROTO Click along with the amplifier. Long press this button to enter "Passthrough" mode in which the system acts as a simple amplifier and does not record and store the audio. Press this special button again to leave the "Passthrough" mode.
 
-The audio will be played through the class D amplifier on PROTO Click. Use the onboard speaker to hear the audio playback, or hook up an external speaker and switch the jumpers.
+The audio will be played through the class D amplifier on PROTO Click. There are two jumpers onboard the PROTO Click:
+- Jumper J1 selects the audio input source between Mic Click and Heaphone Mic. (Always select Mic Click when headphone mic is not connected to the 3.5mm audio jack)
+- Jumper J2 selects the audio output between external speaker and 3.5mm audio jack. An external speaker or a headphone can be connected to the 3.5mm audio jack.
+
+**Note:** It is recommended to avoid selecting heaphones for both audio output and mic input together in "Passthrough" mode to avoid noise induction.
 
 ## Summary
 
