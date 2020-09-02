@@ -406,6 +406,20 @@ void inline PingPong2SPI()
 }
 
 /**
+ * @brief This routine selects appropriate microphone input based on hardware jumper
+ * @return None
+ * @param None
+ * @example AUDIO_SelectMicInput();
+ */
+void inline AUDIO_SelectMicInput()
+{
+    if(Mic_SEL_GetValue())
+        ADPCH = channel_MIC2_AND7;
+    else
+        ADPCH = channel_MIC_ANA0;
+}
+
+/**
  * @brief This routine reads the metadata of the stored audio
  * @return None
  * @param None
@@ -621,6 +635,9 @@ void AUDIO_Record()
         maxAudioSize = PFM_AUDIO_SIZE_PAGES;
         pfmAudio.audioStartAddr = flashAddr;        // metadata
     }
+    
+    // Select microphone input channel
+    AUDIO_SelectMicInput();
 
     // Enable ADC
     ADCON0bits.ON = 1;
@@ -790,6 +807,9 @@ void AUDIO_Playback()
         numPages = pfmAudio.audioSize_pages;
     }
     
+    // Enable PWM for power amplifier
+    PWM2_16BIT_Enable();
+    
     // Enable DAC
     DAC1CONbits.EN = 1;
     
@@ -873,6 +893,9 @@ void AUDIO_Playback()
     // Disable DAC
     DAC1CONbits.EN = 0;
     
+    // Disable PWM for power amplifier
+    PWM2_16BIT_Disable();
+    
     // Reset any lurking switch states
     ResetSwitches();
     
@@ -893,6 +916,12 @@ void AUDIO_Passthrough()
     
     // Reset switch states
     ResetSwitches();
+    
+    // Select microphone input channel
+    AUDIO_SelectMicInput();
+    
+    // Enable PWM for power amplifier
+    PWM2_16BIT_Enable();
     
     // Enable ADC and DAC
     ADCON0bits.ON = 1;
@@ -923,6 +952,9 @@ void AUDIO_Passthrough()
     ADCON0bits.ON = 0;
     DAC1CONbits.EN = 0;
     
+    // Disable PWM for power amplifier
+    PWM2_16BIT_Disable();
+    
     // Reset switch states
     ResetSwitches();
     
@@ -950,6 +982,9 @@ void APP_Initialize()
     // Disable ADC and DAC 
     ADCON0bits.ON = 0;
     DAC1CONbits.EN = 0;
+    
+    // Disable PWM for power amplifier
+    PWM2_16BIT_Disable();
     
     // Reset all DMAs
     ResetAllDMA();

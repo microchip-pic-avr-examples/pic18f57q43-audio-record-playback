@@ -141,25 +141,25 @@
 #define RB1_SetAnalogMode()         do { ANSELBbits.ANSELB1 = 1; } while(0)
 #define RB1_SetDigitalMode()        do { ANSELBbits.ANSELB1 = 0; } while(0)
 
-// get/set IO_RB2 aliases
-#define IO_RB2_TRIS                 TRISBbits.TRISB2
-#define IO_RB2_LAT                  LATBbits.LATB2
-#define IO_RB2_PORT                 PORTBbits.RB2
-#define IO_RB2_WPU                  WPUBbits.WPUB2
-#define IO_RB2_OD                   ODCONBbits.ODCB2
-#define IO_RB2_ANS                  ANSELBbits.ANSELB2
-#define IO_RB2_SetHigh()            do { LATBbits.LATB2 = 1; } while(0)
-#define IO_RB2_SetLow()             do { LATBbits.LATB2 = 0; } while(0)
-#define IO_RB2_Toggle()             do { LATBbits.LATB2 = ~LATBbits.LATB2; } while(0)
-#define IO_RB2_GetValue()           PORTBbits.RB2
-#define IO_RB2_SetDigitalInput()    do { TRISBbits.TRISB2 = 1; } while(0)
-#define IO_RB2_SetDigitalOutput()   do { TRISBbits.TRISB2 = 0; } while(0)
-#define IO_RB2_SetPullup()          do { WPUBbits.WPUB2 = 1; } while(0)
-#define IO_RB2_ResetPullup()        do { WPUBbits.WPUB2 = 0; } while(0)
-#define IO_RB2_SetPushPull()        do { ODCONBbits.ODCB2 = 0; } while(0)
-#define IO_RB2_SetOpenDrain()       do { ODCONBbits.ODCB2 = 1; } while(0)
-#define IO_RB2_SetAnalogMode()      do { ANSELBbits.ANSELB2 = 1; } while(0)
-#define IO_RB2_SetDigitalMode()     do { ANSELBbits.ANSELB2 = 0; } while(0)
+// get/set Mic_SEL aliases
+#define Mic_SEL_TRIS                 TRISBbits.TRISB2
+#define Mic_SEL_LAT                  LATBbits.LATB2
+#define Mic_SEL_PORT                 PORTBbits.RB2
+#define Mic_SEL_WPU                  WPUBbits.WPUB2
+#define Mic_SEL_OD                   ODCONBbits.ODCB2
+#define Mic_SEL_ANS                  ANSELBbits.ANSELB2
+#define Mic_SEL_SetHigh()            do { LATBbits.LATB2 = 1; } while(0)
+#define Mic_SEL_SetLow()             do { LATBbits.LATB2 = 0; } while(0)
+#define Mic_SEL_Toggle()             do { LATBbits.LATB2 = ~LATBbits.LATB2; } while(0)
+#define Mic_SEL_GetValue()           PORTBbits.RB2
+#define Mic_SEL_SetDigitalInput()    do { TRISBbits.TRISB2 = 1; } while(0)
+#define Mic_SEL_SetDigitalOutput()   do { TRISBbits.TRISB2 = 0; } while(0)
+#define Mic_SEL_SetPullup()          do { WPUBbits.WPUB2 = 1; } while(0)
+#define Mic_SEL_ResetPullup()        do { WPUBbits.WPUB2 = 0; } while(0)
+#define Mic_SEL_SetPushPull()        do { ODCONBbits.ODCB2 = 0; } while(0)
+#define Mic_SEL_SetOpenDrain()       do { ODCONBbits.ODCB2 = 1; } while(0)
+#define Mic_SEL_SetAnalogMode()      do { ANSELBbits.ANSELB2 = 1; } while(0)
+#define Mic_SEL_SetDigitalMode()     do { ANSELBbits.ANSELB2 = 0; } while(0)
 
 // get/set SST26VF064B_WP aliases
 #define SST26VF064B_WP_TRIS                 TRISBbits.TRISB3
@@ -416,6 +416,26 @@
 #define SST26VF064B_CS_SetOpenDrain()       do { ODCONDbits.ODCD6 = 1; } while(0)
 #define SST26VF064B_CS_SetAnalogMode()      do { ANSELDbits.ANSELD6 = 1; } while(0)
 #define SST26VF064B_CS_SetDigitalMode()     do { ANSELDbits.ANSELD6 = 0; } while(0)
+
+// get/set channel_MIC2_AND7 aliases
+#define channel_MIC2_AND7_TRIS                 TRISDbits.TRISD7
+#define channel_MIC2_AND7_LAT                  LATDbits.LATD7
+#define channel_MIC2_AND7_PORT                 PORTDbits.RD7
+#define channel_MIC2_AND7_WPU                  WPUDbits.WPUD7
+#define channel_MIC2_AND7_OD                   ODCONDbits.ODCD7
+#define channel_MIC2_AND7_ANS                  ANSELDbits.ANSELD7
+#define channel_MIC2_AND7_SetHigh()            do { LATDbits.LATD7 = 1; } while(0)
+#define channel_MIC2_AND7_SetLow()             do { LATDbits.LATD7 = 0; } while(0)
+#define channel_MIC2_AND7_Toggle()             do { LATDbits.LATD7 = ~LATDbits.LATD7; } while(0)
+#define channel_MIC2_AND7_GetValue()           PORTDbits.RD7
+#define channel_MIC2_AND7_SetDigitalInput()    do { TRISDbits.TRISD7 = 1; } while(0)
+#define channel_MIC2_AND7_SetDigitalOutput()   do { TRISDbits.TRISD7 = 0; } while(0)
+#define channel_MIC2_AND7_SetPullup()          do { WPUDbits.WPUD7 = 1; } while(0)
+#define channel_MIC2_AND7_ResetPullup()        do { WPUDbits.WPUD7 = 0; } while(0)
+#define channel_MIC2_AND7_SetPushPull()        do { ODCONDbits.ODCD7 = 0; } while(0)
+#define channel_MIC2_AND7_SetOpenDrain()       do { ODCONDbits.ODCD7 = 1; } while(0)
+#define channel_MIC2_AND7_SetAnalogMode()      do { ANSELDbits.ANSELD7 = 1; } while(0)
+#define channel_MIC2_AND7_SetDigitalMode()     do { ANSELDbits.ANSELD7 = 0; } while(0)
 
 // get/set RF0 procedures
 #define RF0_SetHigh()            do { LATFbits.LATF0 = 1; } while(0)
