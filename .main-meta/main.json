@@ -2,7 +2,7 @@
     "metaDataVersion": "1.0.0",
     "category": "com.microchip.ide.project",
     "content": {
-        "metaDataVersion": "1.0.0",
+        "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-audio-record-playback",
         "version": "1.0.2",
         "displayName": "PIC18F57Q43 AUDIO RECORDING AND PLAYBACK USING DMA AND CIPs",
@@ -62,7 +62,7 @@
                "Peripherals", "TMR2"
             ],
 			[
-               "Peripherals", "CLC1"
+               "Peripherals", "CLC"
             ],
 			[
                "Peripherals", "UART"
@@ -81,16 +81,16 @@
             "dma",
             "flash",
             "memory"            
-        ]
-    },
-    "additionalData": {
-        "longDescription": {
-            "metaDataVersion": "1.0.0",
-            "category": "com.microchip.portal.fileRef",
-            "content": {
+        ],
+        "additionalData": {
+            "longDescription": {
                 "metaDataVersion": "1.0.0",
-                "fileName": "./README.md",
-                "mimeType": "text/markdown"
+                "category": "com.microchip.portal.fileRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "fileName": "./README.md",
+                    "mimeType": "text/markdown"
+                }
             }
         }
     }
