@@ -10,11 +10,11 @@ This demo is based on the PIC18F57Q43 Curiosity Nano platform. It details the us
 
 ## Software Used
 
-- MPLAB® X IDE 5.30 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-- MPLAB® XC8 2.10 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-- MPLAB® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
+- MPLAB® X IDE 6.15 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
+- MPLAB® XC8 2.45 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
+- MPLAB® Code Configurator (MCC) 5.3.7 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
 - MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-- Microchip PIC18F-Q Series Device Support (1.4.109) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) 
+- Microchip PIC18F-Q Series Device Support (1.23.425) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) 
 
 ## Hardware Used
 
@@ -70,10 +70,10 @@ To run the application, use the button on the Curiosity Nano board.
 A special button is available on the PROTO Click along with the amplifier. Long press this button to enter "Passthrough" mode in which the system acts as a simple amplifier and does not record and store the audio. Press this special button again to leave the "Passthrough" mode.
 
 The audio will be played through the class D amplifier on PROTO Click. There are two jumpers onboard the PROTO Click:
-- Jumper J1 selects the audio input source between Mic Click and Heaphone Mic. (Always select Mic Click when headphone mic is not connected to the 3.5mm audio jack)
+- Jumper J1 selects the audio input source between Mic Click and Headphone Mic. (Always select Mic Click when headphone mic is not connected to the 3.5mm audio jack)
 - Jumper J2 selects the audio output between external speaker and 3.5mm audio jack. An external speaker or a headphone can be connected to the 3.5mm audio jack.
 
-**Note:** It is recommended to avoid selecting heaphones for both audio output and mic input together in "Passthrough" mode to avoid noise induction.
+**Note:** It is recommended to avoid selecting headphones for both audio output and mic input together in "Passthrough" mode to avoid noise induction.
 
 ## Summary
 
