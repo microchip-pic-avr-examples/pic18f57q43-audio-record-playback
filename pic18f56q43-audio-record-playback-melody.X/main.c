@@ -103,8 +103,8 @@ bool extMem = true;                        // Is external memory present?
 #define DELAY_500ms             0xE17B      // and 1:2 prescaler
 #define DELAY_400ms             0xE796      // Used to time the buttons
 #define DELAY_300ms             0xEDB0
-#define ERASE_FLASH_BLOCKSIZE    128
-#define END_FLASH                0x020000
+#define ERASE_FLASH_BLOCKSIZE    128        // Page or "Block" size in PFM
+#define END_FLASH                0x020000   // Ending Address 
 
 #define PrintChar               UART1_Write // Print debug char into UART
 
@@ -269,36 +269,6 @@ void inline ResetAllDMA()
  * @example FLASH_WriteWord_ByWord(flashAddr);
  */
 
-void FLASH_EraseBlock(uint32_t flashAddr)
-{
-    uint32_t blockStartAddr = (uint32_t) (flashAddr & ((END_FLASH - 1) ^ ((ERASE_FLASH_BLOCKSIZE * 2) - 1)));
-    uint8_t GIEBitValue = INTCON0bits.GIE;
-
-    //The NVMADR[21:8] bits point to the page being erased.
-    //The NVMADR[7:0] bits are ignored
-    NVMADRU = (uint8_t) ((blockStartAddr & 0x00FF0000) >> 16);
-    NVMADRH = (uint8_t) ((blockStartAddr & 0x0000FF00) >> 8);
-
-    //Set the NVMCMD control bits for Erase Page operation
-    NVMCON1bits.NVMCMD = 0b110;
-
-    //Disable all interrupts
-    INTCON0bits.GIE = 0;
-
-    //Perform the unlock sequence
-    NVMLOCK = 0x55;
-    NVMLOCK = 0xAA;
-
-    //Start page erase and wait for the operation to complete
-    NVMCON0bits.GO = 1;
-    while (NVMCON0bits.GO);
-
-    //Restore the interrupts
-    INTCON0bits.GIE = GIEBitValue;
-
-    //Set the NVMCMD control bits for Word Read operation to avoid accidental writes
-    NVMCON1bits.NVMCMD = 0b000;
-}
 
 void FLASH_WriteWord_ByWord(uint32_t flashAddr)
 {
@@ -383,57 +353,11 @@ void FLASH_ErasePages(uint32_t flashAddr, uint16_t numPages)
     }
     
     for(uint16_t i = 0; i < numPages; i++) {
-        FLASH_EraseBlock(flashAddr);
+        FLASH_PageErase(flashAddr);
         flashAddr += GPR_PFM_BLOCK_SIZE;
     }
 }
 
-void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData)
-{
-    uint8_t GIEBitValue = INTCON0bits.GIE;
-
-    //Set NVMADR with the target word address (0x380000 - 0x3803FF)
-    NVMADRU = 0x38;
-    NVMADRH = (uint8_t) ((bAdd & 0xFF00) >> 8);
-    NVMADRL = (uint8_t) (bAdd & 0x00FF);
-
-    //Load NVMDATL with desired byte
-    NVMDATL = bData;
-
-    //Set the NVMCMD control bits for DFM Byte Write operation
-    NVMCON1bits.NVMCMD = 0b011;
-
-    //Disable all interrupts
-    INTCON0bits.GIE = 0;
-
-    //Perform the unlock sequence and start Page Erase
-    NVMLOCK = 0x55;
-    NVMLOCK = 0xAA;
-
-    //Start DFM write and wait for the operation to complete
-    NVMCON0bits.GO = 1;
-    while (NVMCON0bits.GO);
-
-    //Restore all the interrupts
-    INTCON0bits.GIE = GIEBitValue;
-
-    //Set the NVMCMD control bits for Word Read operation to avoid accidental writes
-    NVMCON1bits.NVMCMD = 0b000;
-}
-
-uint8_t DATAEE_ReadByte(uint16_t bAdd)
-{
-    //Set NVMADR with the target word address (0x380000 - 0x3803FF)
-    NVMADRU = 0x38;
-    NVMADRH = (uint8_t) ((bAdd & 0xFF00) >> 8);
-    NVMADRL = (uint8_t) (bAdd & 0x00FF);
-
-    //Set the NVMCMD control bits for DFM Byte Read operation
-    NVMCON1bits.NVMCMD = 0b000;
-    NVMCON0bits.GO = 1;
-
-    return NVMDATL;
-}
 
 /**
  * @brief This routine transfers ping/pong buffer contents to buffer RAM
@@ -515,13 +439,13 @@ void AUDIO_ReadMetaData()
 {
     if(extMem)
     {
-        extMemAudio.audioStartAddr  = ((uint32_t)DATAEE_ReadByte(EXTMEM_METADATA_ADDR))   << 24;
-        extMemAudio.audioStartAddr += ((uint32_t)DATAEE_ReadByte(EXTMEM_METADATA_ADDR+1)) << 16;
-        extMemAudio.audioStartAddr += ((uint32_t)DATAEE_ReadByte(EXTMEM_METADATA_ADDR+2)) << 8;
-        extMemAudio.audioStartAddr += ((uint32_t)DATAEE_ReadByte(EXTMEM_METADATA_ADDR+3));
+        extMemAudio.audioStartAddr  = ((uint32_t)EEPROM_Read(EXTMEM_METADATA_ADDR))   << 24;
+        extMemAudio.audioStartAddr += ((uint32_t)EEPROM_Read(EXTMEM_METADATA_ADDR+1)) << 16;
+        extMemAudio.audioStartAddr += ((uint32_t)EEPROM_Read(EXTMEM_METADATA_ADDR+2)) << 8;
+        extMemAudio.audioStartAddr += ((uint32_t)EEPROM_Read(EXTMEM_METADATA_ADDR+3));
         
-        extMemAudio.audioSize_pages = ((uint32_t)DATAEE_ReadByte(EXTMEM_METADATA_ADDR+4)) << 8;
-        extMemAudio.audioSize_pages+= ((uint32_t)DATAEE_ReadByte(EXTMEM_METADATA_ADDR+5));
+        extMemAudio.audioSize_pages = ((uint32_t)EEPROM_Read(EXTMEM_METADATA_ADDR+4)) << 8;
+        extMemAudio.audioSize_pages+= ((uint32_t)EEPROM_Read(EXTMEM_METADATA_ADDR+5));
         
         // Did EEPROM return all 0xFF? Then it is blank and no metadata exists
         // In that case initialize metadata here
@@ -532,13 +456,13 @@ void AUDIO_ReadMetaData()
     }
     else
     {
-        pfmAudio.audioStartAddr  = ((uint32_t)DATAEE_ReadByte(PFM_AUDIO_METADATA_ADDR))   << 24;
-        pfmAudio.audioStartAddr += ((uint32_t)DATAEE_ReadByte(PFM_AUDIO_METADATA_ADDR+1)) << 16;
-        pfmAudio.audioStartAddr += ((uint32_t)DATAEE_ReadByte(PFM_AUDIO_METADATA_ADDR+2)) << 8;
-        pfmAudio.audioStartAddr += ((uint32_t)DATAEE_ReadByte(PFM_AUDIO_METADATA_ADDR+3));
+        pfmAudio.audioStartAddr  = ((uint32_t)EEPROM_Read(PFM_AUDIO_METADATA_ADDR))   << 24;
+        pfmAudio.audioStartAddr += ((uint32_t)EEPROM_Read(PFM_AUDIO_METADATA_ADDR+1)) << 16;
+        pfmAudio.audioStartAddr += ((uint32_t)EEPROM_Read(PFM_AUDIO_METADATA_ADDR+2)) << 8;
+        pfmAudio.audioStartAddr += ((uint32_t)EEPROM_Read(PFM_AUDIO_METADATA_ADDR+3));
         
-        pfmAudio.audioSize_pages = ((uint32_t)DATAEE_ReadByte(PFM_AUDIO_METADATA_ADDR+4)) << 8;
-        pfmAudio.audioSize_pages+= ((uint32_t)DATAEE_ReadByte(PFM_AUDIO_METADATA_ADDR+5));
+        pfmAudio.audioSize_pages = ((uint32_t)EEPROM_Read(PFM_AUDIO_METADATA_ADDR+4)) << 8;
+        pfmAudio.audioSize_pages+= ((uint32_t)EEPROM_Read(PFM_AUDIO_METADATA_ADDR+5));
         
         // Did EEPROM return all 0xFF? Then it is blank and no metadata exists
         // In that case initialize metadata here
@@ -559,23 +483,23 @@ void AUDIO_UpdateMetaData()
 {
     if(extMem)
     {
-        DATAEE_WriteByte(EXTMEM_METADATA_ADDR,   extMemAudio.audioStartAddr >> 24);
-        DATAEE_WriteByte(EXTMEM_METADATA_ADDR+1, extMemAudio.audioStartAddr >> 16);
-        DATAEE_WriteByte(EXTMEM_METADATA_ADDR+2, extMemAudio.audioStartAddr >> 8);
-        DATAEE_WriteByte(EXTMEM_METADATA_ADDR+3, extMemAudio.audioStartAddr);
+        EEPROM_Write(EXTMEM_METADATA_ADDR,   extMemAudio.audioStartAddr >> 24);
+        EEPROM_Write(EXTMEM_METADATA_ADDR+1, extMemAudio.audioStartAddr >> 16);
+        EEPROM_Write(EXTMEM_METADATA_ADDR+2, extMemAudio.audioStartAddr >> 8);
+        EEPROM_Write(EXTMEM_METADATA_ADDR+3, extMemAudio.audioStartAddr);
         
-        DATAEE_WriteByte(EXTMEM_METADATA_ADDR+4, extMemAudio.audioSize_pages >> 8);
-        DATAEE_WriteByte(EXTMEM_METADATA_ADDR+5, extMemAudio.audioSize_pages);
+        EEPROM_Write(EXTMEM_METADATA_ADDR+4, extMemAudio.audioSize_pages >> 8);
+        EEPROM_Write(EXTMEM_METADATA_ADDR+5, extMemAudio.audioSize_pages);
     }
     else
     {  
-        DATAEE_WriteByte(PFM_AUDIO_METADATA_ADDR,   pfmAudio.audioStartAddr >> 24);
-        DATAEE_WriteByte(PFM_AUDIO_METADATA_ADDR+1, pfmAudio.audioStartAddr >> 16);
-        DATAEE_WriteByte(PFM_AUDIO_METADATA_ADDR+2, pfmAudio.audioStartAddr >> 8);
-        DATAEE_WriteByte(PFM_AUDIO_METADATA_ADDR+3, pfmAudio.audioStartAddr);
+        EEPROM_Write(PFM_AUDIO_METADATA_ADDR,   pfmAudio.audioStartAddr >> 24);
+        EEPROM_Write(PFM_AUDIO_METADATA_ADDR+1, pfmAudio.audioStartAddr >> 16);
+        EEPROM_Write(PFM_AUDIO_METADATA_ADDR+2, pfmAudio.audioStartAddr >> 8);
+        EEPROM_Write(PFM_AUDIO_METADATA_ADDR+3, pfmAudio.audioStartAddr);
         
-        DATAEE_WriteByte(PFM_AUDIO_METADATA_ADDR+4, pfmAudio.audioSize_pages >> 8);
-        DATAEE_WriteByte(PFM_AUDIO_METADATA_ADDR+5, pfmAudio.audioSize_pages);
+        EEPROM_Write(PFM_AUDIO_METADATA_ADDR+4, pfmAudio.audioSize_pages >> 8);
+        EEPROM_Write(PFM_AUDIO_METADATA_ADDR+5, pfmAudio.audioSize_pages);
     }
 }
 
