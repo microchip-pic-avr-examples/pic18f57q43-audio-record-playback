@@ -38,7 +38,7 @@
         },
         "author": "Microchip",
         "peripherals": ["TMR0","ADCC","DAC","SPI","DMA","PWM","CMP","TMR2","CLC","UART"],
-        "keywords": ["MCC","audio recording","audio","audio playback","audio recoding and playback","cip","dma","flash","memory"],
+        "keywords": ["MCC"],
         "additionalData": {
             "longDescription": {
                 "metaDataVersion": "1.0.0",
