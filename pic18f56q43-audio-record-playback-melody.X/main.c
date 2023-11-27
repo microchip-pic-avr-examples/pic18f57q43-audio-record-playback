@@ -73,7 +73,7 @@
 
 // Memory Macros and variables
 #define GPR_PFM_BLOCK_SIZE      256         // Bank size of GPR space in bytes
-#define PFM_AUDIO_START_ADDR    0x4500      // Start address of audio#1 in flash // default 0x4000
+#define PFM_AUDIO_START_ADDR    0x4500      // Start address of audio#1 in flash
 #define PFM_AUDIO_END_ADDR      0x01FEFF    // Last address available in PFM for audio storage (excludes SAF)
 #define PFM_AUDIO_SIZE_PAGES    440         // Size of each audio in pages // from 0x4000 440 pages reached last-1 page // 192 pages reaches 0xFFFF
 #define PFM_AUDIO_METADATA_ADDR 0x0000      // Offset from 0x380000 in EEPROM // Metadata stored here
