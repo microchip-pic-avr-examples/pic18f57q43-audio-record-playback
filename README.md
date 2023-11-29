@@ -14,7 +14,7 @@ This demo is based on the PIC18F57Q43 Curiosity Nano platform. It details the us
 - MPLAB® XC8 2.45 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
 - MPLAB® Code Configurator (MCC) 5.3.7 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
 - MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-- Microchip PIC18F-Q Series Device Support (1.23.425) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) 
+- Microchip PIC18F-Q Series Device Support (1.23.425) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/)
 
 ## Hardware Used
 
@@ -27,9 +27,9 @@ This demo is based on the PIC18F57Q43 Curiosity Nano platform. It details the us
 ## Hardware Setup
 
 The necessary connections between the PIC18F57Q43 Curiosity Nano board and the required click boards are shown below:
-- The Click 1 expansion connects to the Mic click board. This uses the AN1 pin to transfer analog voice signal to the ADC on-board the PIC18F57Q43. The Mic click has a signal conditioning and filtering circuit on board.
-- The Click 2 expansion connects to the Flash 2 click board. This board has the SST26VF064B Flash memory chip by Microchip and uses SPI to communicate with the microcontroller.
-- The Click 3 expansion connects to a custom made Class D power amplifier circuit on a PROTO Click.
+- The Click 1 expansion connects to the Mic click board. This uses the AN1 pin to transfer analog voice signal to the ADC on-board the PIC18F57Q43. The Mic click has a signal conditioning and filtering circuit on board
+- The Click 2 expansion connects to the Flash 2 click board. This board has the SST26VF064B Flash memory chip by Microchip and uses SPI to communicate with the microcontroller
+- The Click 3 expansion connects to a custom made Class D power amplifier circuit on a PROTO Click
 
 ### Curiosity Nano Board Connections
 ![Curiosity Nano Board Connections](images/Curiosity-Nano-Board-Connections.jpg)
