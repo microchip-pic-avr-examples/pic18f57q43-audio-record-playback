@@ -32,6 +32,7 @@
         <logicalFolder displayName="spi" name="spi" projectFiles="true">
           <itemPath>mcc_generated_files/spi/spi1.h</itemPath>
           <itemPath>mcc_generated_files/spi/spi_interface.h</itemPath>
+          <itemPath>mcc_generated_files/spi/spi_polling_types.h</itemPath>
         </logicalFolder>
         <logicalFolder displayName="system" name="system" projectFiles="true">
           <itemPath>mcc_generated_files/system/clock.h</itemPath>
@@ -262,6 +263,10 @@
         <property key="program-the-device-with-default-config-words" value="false"/>
         <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
+      <Tool>
+        <property key="memories.programmemory.ranges" value="0-1ffff"/>
+        <property key="programmerToGoFilePath" value="C:/Users/C76375/MPLABXProjects/pic18f56q43-audio-record-playback-melody.X/debug/default/pic18f56q43-audio-record-playback-melody_ptg"/>
+      </Tool>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
         <property key="stack-guidance" value="false"/>
@@ -284,6 +289,10 @@
         <property key="user-pack-device-support" value=""/>
         <property key="wpo-lto" value="false"/>
       </XC8-config-global>
+      <nEdbgTool>
+        <property key="memories.programmemory.ranges" value="0-1ffff"/>
+        <property key="programmerToGoFilePath" value="C:/Users/C76375/MPLABXProjects/pic18f56q43-audio-record-playback-melody.X/debug/default/pic18f56q43-audio-record-playback-melody_ptg"/>
+      </nEdbgTool>
     </conf>
   </confs>
 </configurationDescriptor>

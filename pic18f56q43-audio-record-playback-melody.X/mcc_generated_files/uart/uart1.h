@@ -7,10 +7,10 @@
  * 
  * @brief This file contains API prototypes and other datatypes for UART1 module.
  *
- * @version UART1 Driver Version 3.0.5
+ * @version UART1 Driver Version 3.0.4
 */
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -64,9 +64,6 @@
 #define UART1_TransmitDisable      UART1_TransmitDisable
 #define UART1_AutoBaudSet          UART1_AutoBaudSet
 #define UART1_AutoBaudQuery        UART1_AutoBaudQuery
-#define UART1_AutoBaudDetectCompleteReset  UART1_AutoBaudDetectCompleteReset
-#define UART1_IsAutoBaudDetectOverflow     UART1_IsAutoBaudDetectOverflow
-#define UART1_AutoBaudDetectOverflowReset  UART1_AutoBaudDetectOverflowReset
 #define UART1_BRGCountSet               (NULL)
 #define UART1_BRGCountGet               (NULL)
 #define UART1_BaudRateSet               (NULL)

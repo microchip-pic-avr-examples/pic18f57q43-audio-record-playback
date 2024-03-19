@@ -1,14 +1,15 @@
-/** 
- * TMR Generated Driver API Header File
+/**
+ * SPI Type Definitions Header File
  *
- * @file timer_interface.h
- *  
- * @defgroup timer_interface Timer interface
+ * @file spi_polling_types.h
  *
- * @brief This header file provides interfaces to Timer APIs.
+ * @defgroup spi SPI
  *
- * @version TMR_interface Version 1.0.1
- */
+ * @version SPI Driver Version v3.1.0.
+ *
+ * @brief This header file provides type definitions for the SPI module operation in Polling mode.
+ *
+*/
 
 /*
 © [2024] Microchip Technology Inc. and its subsidiaries.
@@ -31,32 +32,22 @@
     THIS SOFTWARE.
 */
 
-#ifndef TMR_INTERFACE_H
-#define TMR_INTERFACE_H
+#ifndef SPI_POLLING_TYPES_H
+#define	SPI_POLLING_TYPES_H
+
 
 /**
- * @brief This file contains API prototypes and other data types for the Timer interface.
- * @{
+ * @ingroup spi
+ * @typedef struct spi_configuration_t
+ * @brief Holds register configurations for SPI module.
  */
+typedef struct
+{ 
+    uint8_t con0; 
+    uint8_t con1; 
+    uint8_t con2; 
+    uint8_t baud; 
+    uint8_t clksel;
+} spi_configuration_t;
 
-#include<stddef.h>
-        
-/**
- @ingroup timer_interface
- @struct TMR_INTERFACE
- @brief This structure contains the interfaces to Timer module
- */
- 
-struct TMR_INTERFACE
-{
-    void (*Initialize)(void);
-    void (*Start)(void);
-    void (*Stop)(void);
-    void (*PeriodCountSet)(size_t count);
-    void (*TimeoutCallbackRegister)(void (* CallbackHandler)(void));
-    void (*Tasks)(void);
-};
-/**
- * @}
- */
-#endif //TMR_INTERFACE_H
+#endif /* SPI_POLLING_TYPES_H */

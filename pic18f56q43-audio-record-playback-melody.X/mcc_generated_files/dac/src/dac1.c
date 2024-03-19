@@ -5,12 +5,12 @@
  * 
  * @ingroup dac1
  * 
- * @brief This is the generated driver implementation file for the DAC1 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+ * @brief This is the generated driver implementation file for the DAC1 driver using PIC10/12/16/18 MCUs
  *
- * @version DAC1 Driver Version 2.1.0
+ * @version DAC1 Driver Version 2.1.1
 */
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 

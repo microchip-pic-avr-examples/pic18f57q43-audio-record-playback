@@ -116,7 +116,7 @@ void SST26VF064B_WriteResume( void );
 void SST26VF064B_PageProgram_Cmd( void );
 void SST26VF064B_Read_Cmd( void );
 void SST26VF064B_JEDECID_Cmd( void );
-
+uint8_t SPI1_ExchangeByte(uint8_t data);
 // Additional functions added
 void SST26VF064B_GetDeviceInfo( SST26VF064B_info_t* info );
 bool SST26VF064B_Initialize();

@@ -5,12 +5,12 @@
  * 
  * @defgroup  dac1 DAC1
  * 
- * @brief This is the generated header file for the DAC1 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+ * @brief This is the generated header file for the DAC1 driver using PIC10/12/16/18 MCUs
  *
- * @version DAC1 Driver Version 2.1.0
+ * @version DAC1 Driver Version 2.1.1
 */
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -46,26 +46,26 @@
 
 /**
  * @ingroup dac1
- * @brief  This routine initializes the DAC1 and must be called only once, before any other DAC1 routine is called.
- * @param void
- * @return void
+ * @brief  Initializes the DAC1 module. This routine is called only once during system initialization, before calling other APIs.
+ * @param None.
+ * @return None.
  */ 
 void DAC1_Initialize(void);
 
 
 /**
  * @ingroup dac1
- * @brief  This routine pass the digital input data intoDAC1 voltage reference control register.
- * @param inputData - 8bit digital data to DAC1.
- * @return void
+ * @brief  Passes the digital input data into the DAC1 Voltage Reference Control register.
+ * @param inputData - 8-bit digital data passed to DAC1
+ * @return None.
  */
 void DAC1_SetOutput(uint8_t inputData);
 
 /**
  * @ingroup dac1
- * @brief  This routine reads the digital input data fed to DAC1 voltage reference control register.
- * @param void
- * @return uint8_t inputData - digital data fed to DAC1
+ * @brief  Reads the digital input data sent to the DAC1 Voltage Reference Control register.
+ * @param None.
+ * @return uint8_t inputData - Digital data sent to the DAC1
  */
 uint8_t DAC1_GetOutput(void);
 

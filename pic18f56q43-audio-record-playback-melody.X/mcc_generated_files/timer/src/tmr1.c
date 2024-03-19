@@ -7,10 +7,10 @@
   *
   * @brief Driver implementation for the TMR1 driver
   *
-  * @version TMR1 Driver Version 3.1.3
+  * @version TMR1 Driver Version 3.1.4
 */
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -43,7 +43,7 @@
 volatile uint16_t timer1ReloadVal;
 void (*TMR1_InterruptHandler)(void);
 
-const struct TMR_INTERFACE tmr1 = {
+const struct TMR_INTERFACE Timer1 = {
     .Initialize = TMR1_Initialize,
     .Start = TMR1_Start,
     .Stop = TMR1_Stop,
@@ -116,7 +116,7 @@ uint16_t TMR1_Read(void)
 
 void TMR1_Write(size_t timerVal)
 {
-    if (T1CONbits.NOT_SYNC == 1)
+    if (T1CONbits.nT1SYNC == 1)
     {
         // Stop the Timer by writing to TMRxON bit
         T1CONbits.TMR1ON = 0;

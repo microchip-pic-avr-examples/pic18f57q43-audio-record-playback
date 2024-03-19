@@ -7,11 +7,11 @@
  * 
  * @brief This is the generated driver implementation file for the UART1 driver using CCL
  *
- * @version UART1 Driver Version 3.0.5
+ * @version UART1 Driver Version 3.0.4
 */
 
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -128,10 +128,10 @@ void UART1_Initialize(void)
     //BRGH 0; 
     U1BRGH = 0x0; 
     //TXBE empty; STPMD in middle of first Stop bit; TXWRE No error; 
-    U1FIFO = 0x20; 
+    U1FIFO = 0x2E; 
     //ABDIE disabled; ABDIF Auto-baud not enabled or not complete; WUIF WUE not enabled by software; 
     U1UIR = 0x0; 
-    //TXCIF equal; RXFOIF not overflowed; RXBKIF No Break detected; FERIF no error; CERIF No Checksum error; ABDOVF Not overflowed; PERIF Byte not at top; TXMTIF empty; 
+    //TXCIF equal; RXFOIF not overflowed; RXBKIF No Break detected; FERIF no error; CERIF No Checksum error; ABDOVF Not overflowed; PERIF no parity error; TXMTIF empty; 
     U1ERRIR = 0x80; 
     //TXCIE disabled; RXFOIE disabled; RXBKIE disabled; FERIE disabled; CERIE disabled; ABDOVE disabled; PERIE disabled; TXMTIE disabled; 
     U1ERRIE = 0x0; 

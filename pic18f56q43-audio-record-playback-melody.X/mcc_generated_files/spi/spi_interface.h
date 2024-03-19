@@ -1,24 +1,17 @@
 /**
-  SPI Generated Driver API Interface File
-
-  @Company
-    Microchip Technology Inc.
-
-  @File Name
-    spi_interface.h
-
-  @Summary
-    This is the generated driver interface file for the SPI driver.
-
-  @Description
-    This interface file provides APIs for driver for SPI.
-    The generated drivers are tested against the following:
-        Compiler          :  XC8 v2.20
-        MPLAB             :  MPLABX v5.40
+ * SPI Driver API Interface File
+ *
+ * @file spi_interface.h
+ *
+ * @defgroup spi SPI
+ *
+ * @brief This header file provides API prototypes for the SPI module in Polling and Interrupt mode.
+ *
+ * @version SPI Interface Version v3.0.0
 */
 
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -41,46 +34,31 @@
 #ifndef SPI_INTERFACE_H
 #define SPI_INTERFACE_H
 
-/**
- Section: Included Files
-*/
 #include <stdint.h>
 #include <stdbool.h>
 #include <stddef.h>
-
-#ifdef __cplusplus
-
-    extern "C" {
-
-#endif
-
-/**
- Section: Data Type Definitions
-*/
         
 /**
-  SPI Driver function structure.
-
-  @Summary
-    Structure containing the function pointers of SPI driver.
- */
+ * @ingroup spi
+ * @struct SPI_INTERFACE SPI
+ * @brief SPI Driver prototypes struct.
+ */ 
 struct SPI_INTERFACE
 {   
     void (*Initialize)(void);
-    void (*Close)(void);
+    void (*Deinitialize)(void);
     bool (*Open)(uint8_t spiConfigIndex);
+    void (*Close)(void);
     void (*BufferExchange)(void *bufferData, size_t bufferSize);
     void (*BufferRead)(void *bufferData, size_t bufferSize);
     void (*BufferWrite)(void *bufferData, size_t bufferSize); 
     uint8_t (*ByteExchange)(uint8_t byteData);    
     uint8_t (*ByteRead)(void);
     void (*ByteWrite)(uint8_t byteData);
+    bool (*IsRxReady)(void);
+    bool (*IsTxReady)(void);
+    void (*RxCompleteCallbackRegister)(void (*callbackHandler)(void));
+    void (*TxCompleteCallbackRegister)(void (*callbackHandler)(void));
 };
 
-#ifdef __cplusplus
-
-    }
-
-#endif
-
-#endif //SPI_INTERFACE_H
+#endif /* SPI_INTERFACE_H */

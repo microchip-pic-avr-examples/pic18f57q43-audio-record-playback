@@ -5,13 +5,15 @@
  * 
  * @defgroup systemdriver System Driver
  * 
- * @brief This is the generated header file for the System driver.
+ * @brief This file contains the API prototype for the System Driver.
  *
- * @version Driver Version 2.0.2
+ * @version Driver Version 2.0.3
+ *
+ * @version Package Version 5.3.4
 */
 
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 

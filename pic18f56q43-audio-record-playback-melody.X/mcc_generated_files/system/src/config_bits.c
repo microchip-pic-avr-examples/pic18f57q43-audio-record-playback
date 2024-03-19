@@ -1,17 +1,19 @@
 /**
- * CONFIGURATION BITS Generated Driver Source File
+ * Configuration Bits Generated Driver Source File
  * 
  * @file config_bits.c
  * 
  * @ingroup config_bitsdriver
  * 
- * @brief This is the generated Device Configuration bits file.
+ * @brief This file contains the API Implementation for the Device Configuration Bits driver.
  *
- * @version Driver Version 2.0.1
+ * @version Driver Version 2.0.2
+ *
+ * @version Package Version 5.3.4
 */
 
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -71,7 +73,6 @@
 #pragma config SAFEN = OFF     // Storage Area Flash enable bit->SAF disabled
 #pragma config BBEN = OFF     // Boot Block enable bit->Boot block disabled
 #pragma config BBSIZE = BBSIZE_512     // Boot Block Size selection bits->Boot Block size is 512 words
-#pragma config DEBUG = OFF     // Background Debugger->Background Debugger disabled
 
 //CONFIG8
 #pragma config WRTB = OFF     // Boot Block Write Protection bit->Boot Block not Write protected

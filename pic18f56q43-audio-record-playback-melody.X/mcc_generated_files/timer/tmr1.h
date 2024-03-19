@@ -7,10 +7,10 @@
  *
  * @brief This file contains the API prototypes and other data types for the TMR1 driver.
  *
- * @version TMR1 Driver Version 3.1.3
+ * @version TMR1 Driver Version 3.1.4
 */
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -40,10 +40,101 @@
 
 /**
  * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_Initialize API
+ */
+#define Timer1_Initialize TMR1_Initialize
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_Start API
+ */
+#define Timer1_Start TMR1_Start
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_Stop API
+ */
+#define Timer1_Stop TMR1_Stop
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_Read API
+ */
+#define Timer1_Read TMR1_Read
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_Write API
+ */
+#define Timer1_Write TMR1_Write
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_PeriodCountSet API
+ */
+#define Timer1_PeriodCountSet TMR1_PeriodCountSet
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_OverflowISR API
+ */
+#define Timer1_OverflowISR TMR1_OverflowISR
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_Reload API
+ */
+#define Timer1_Reload TMR1_Reload
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_GateCallbackRegister API
+ */
+#define Timer1_GateCallbackRegister TMR1_GateCallbackRegister
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_GateISR API
+ */
+#define Timer1_GateISR TMR1_GateISR
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_HasOverflowOccured API
+ */
+#define Timer1_HasOverflowOccured TMR1_HasOverflowOccured
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_CheckGateValueStatus API
+ */
+#define Timer1_CheckGateValueStatus TMR1_CheckGateValueStatus
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_StartSinglePulseAcquisition API
+ */
+#define Timer1_StartSinglePulseAcquisition TMR1_StartSinglePulseAcquisition
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_OverflowCallbackRegister API
+ */
+#define Timer1_OverflowCallbackRegister TMR1_OverflowCallbackRegister
+
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_Tasks API
+ */
+#define Timer1_Tasks TMR1_Tasks
+
+
+/**
+ * @ingroup tmr1
  * @struct TMR_INTERFACE
  * @brief This is an instance of TMR_INTERFACE for Timer module
  */
-extern const struct TMR_INTERFACE tmr1;
+extern const struct TMR_INTERFACE Timer1;
 
 /**
  * @ingroup tmr1

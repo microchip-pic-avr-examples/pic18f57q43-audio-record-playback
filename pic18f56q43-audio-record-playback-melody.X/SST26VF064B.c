@@ -24,7 +24,9 @@
 #include <xc.h>
 #endif
 #include "SST26VF064B.h"
+#include "mcc_generated_files/spi/spi1.h"
 #include "mcc_generated_files/system/system.h"
+
 
 void SST26VF064B_CS_Low(){
     SST26VF064B_CS_SetLow();
